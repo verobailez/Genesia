@@ -11,108 +11,77 @@ w<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #f8f8f6;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-    }
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* Estilo general */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #F4EFE7; /* beige cálido */
+  color: #2B2B2B;
+  line-height: 1.6;
+  text-align: center;
+  padding: 80px 20px;
+}
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-    }
+/* Símbolo Ensō */
+.enso {
+  font-size: 64px;
+  margin-bottom: 40px;
+  color: #2B2B2B;
+}
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 120px 24px;
-    }
+/* Título principal */
+h1 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
 
-    section {
-      margin-bottom: 120px;
-    }
+/* Texto */
+p {
+  max-width: 520px;
+  margin: 0 auto 50px;
+  font-size: 16px;
+  color: #3A3A3A;
+}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
+/* Botón contacto */
+a.button {
+  text-decoration: none;
+  color: #7A6F61;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #7A6F61;
+  transition: all 0.3s ease;
+}
 
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 24px;
-    }
+a.button:hover {
+  color: #2B2B2B;
+  border-bottom: 1px solid #2B2B2B;
+}
 
-    h3 {
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      color: var(--muted);
-    }
+    .closing {
+  margin-top: 120px;
+  font-size: 13px;
+  color: #7A6F61;
+  letter-spacing: 0.5px;
+}
+</style>
 
-    p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: var(--muted);
-    }
-
-    .hero .closing {
-      margin-top: 32px;
-      font-style: italic;
-    }
-
-    .manifesto p {
-      margin-bottom: 32px;
-    }
-
-    .contact p {
-      font-size: 18px;
-      margin-bottom: 32px;
-    }
-
-    .button {
-      display: inline-block;
-      text-decoration: none;
-      color: var(--text);
-      border-bottom: 1px solid var(--text);
-      padding-bottom: 4px;
-      font-size: 16px;
-    }
-
-    .button:hover {
-      opacity: 0.7;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 40px;
-      }
-
-      .container {
-        padding: 80px 20px;
-      }
-    }
-  </style>
 </head>
 
+  <p class="closing">
+  Pensar es un acto de responsabilidad.
+</p>
 <body>
+  
   <main class="container">
 
     <div class="enso">◯</div>
