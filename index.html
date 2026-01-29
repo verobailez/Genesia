@@ -1,222 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Genesia</title>
 
-  <!-- Tipografías -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
   <style>
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* Estilo general */
-    /* Hero centrado */
-.hero {
-  text-align: center;
-  margin-bottom: 100px;
-}
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #F4EFE7;
+      color: #2B2B2B;
+      line-height: 1.6;
+    }
 
-    .enso-container {
-  text-align: center;
-  margin-bottom: 50px;
-}
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 20px 100px;
+    }
 
-.enso {
-  width: 120px;
-  height: auto;
-}
-.title-genesia {
-  font-size: 40px;
-  text-align: center;
-  font-weight: 400;
-  margin-bottom: 30px;
-  padding: 8px 16px;
-  border: 1px solid rgba(0,0,0,0.2);
-  display: inline-block;
-}
+    .enso {
+      width: 140px;
+      margin-bottom: 30px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
+    .brand-box {
+      display: inline-block;
+      padding: 14px 30px;
+      border: 1px solid #2B2B2B;
+      font-size: 38px;
+      letter-spacing: 2px;
+      font-weight: 400;
+    }
 
-/* Contenido editorial corrido */
-.content {
-  max-width: 600px;
-  margin-left: 80px;   /* 👈 acá está el “al costado” */
-  text-align: left;
-}
+    .subtitle {
+      margin-top: 40px;
+      font-size: 18px;
+      color: #3A3A3A;
+    }
 
-/* En mobile se recentra solo */
-@media (max-width: 768px) {
-  .content {
-    margin-left: 0;
-    padding: 0 20px;
-  }
-}
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #F4EFE7; /* beige cálido */
-  color: #2B2B2B;
-  line-height: 1.6;
-  text-align: center;
-  padding: 80px 20px;
-}
+    .subtitle small {
+      display: block;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #6F6A63;
+    }
 
-/* Símbolo Ensō */
-.enso-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
+    /* CONTENIDO */
+    .content {
+      max-width: 620px;
+      margin-left: 80px;
+      padding-bottom: 80px;
+    }
 
-.enso {
-  width: 140px;
-  height: auto;
-  display: block;
-}
-    
-/* Título principal */
-h1 {
-  font-size: 32px;
-  font-weight: 400;
-  margin-bottom: 30px;
-  letter-spacing: 0.5px;
-}
+    section {
+      padding: 40px 0;
+    }
 
-/* Texto */
-p {
-  max-width: 520px;
-  margin: 0 auto 50px;
-  font-size: 16px;
-  color: #3A3A3A;
-}
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #D8D2C8;
+      margin-bottom: 30px;
+    }
 
-/* Botón contacto */
-a.button {
-  text-decoration: none;
-  color: #7A6F61;
-  font-size: 14px;
-  letter-spacing: 1px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #7A6F61;
-  transition: all 0.3s ease;
-}
+    h3 {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
 
-a.button:hover {
-  color: #2B2B2B;
-  border-bottom: 1px solid #2B2B2B;
-}
+    p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #3A3A3A;
+    }
 
-   .footer {
-  margin-top: 80px;
-  font-size: 12px;
-  color: #9A9A9A;
-  text-align: center;
-}
-</style>
+    /* Fondos suaves */
+    .empresas {
+      background-color: #F9F7F4;
+      padding: 40px;
+    }
 
+    .humano {
+      background-color: #F7F5F0;
+      padding: 40px;
+    }
+
+    .manifiesto {
+      background-color: #F9F8F5;
+      padding: 40px;
+    }
+
+    .manifiesto p {
+      margin-bottom: 14px;
+    }
+
+    /* Contacto */
+    .contacto {
+      padding: 60px 40px;
+    }
+
+    .contacto a {
+      text-decoration: none;
+      color: #7A6F61;
+      font-size: 14px;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #7A6F61;
+    }
+
+    /* Cierre */
+    .closing {
+      text-align: center;
+      font-size: 12px;
+      color: #7A6F61;
+      margin-top: 120px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #9A9A9A;
+      margin: 40px 0;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .content {
+        margin-left: 0;
+        padding: 0 20px;
+      }
+    }
+  </style>
 </head>
 
-  <p class="closing">
-  Pensar es un acto de responsabilidad.
-</p>
 <body>
 
-   <div class="hero">
-  <img src="ensog.jpeg" alt="Enso" class="enso">
-  <div class="brand-box">Genesia</div>
-</div>
+  <!-- HERO -->
+  <div class="hero">
+    <img src="enso.jpeg" alt="Ensō" class="enso">
+    <div class="brand-box">Genesia</div>
 
-  <main class="container">
+    <div class="subtitle">
+      Decisiones estratégicas y crisis vitales.
+      <small>Cuando lo viejo ya no funciona.</small>
+    </div>
+  </div>
 
-  
-    <!-- HERO -->
-    <section class="hero">
-      <p>Decisiones estratégicas y crisis vitales.</p>
-      <p class="closing">Cuando lo viejo ya no funciona.</p>
-    </section>
+  <!-- CONTENIDO -->
+  <div class="content">
 
-    <!-- GENESIA EMPRESAS -->
-    <section>
+    <section class="empresas">
+      <hr>
       <h3>Genesia Empresas</h3>
       <p>
-        Acompañamos procesos de decisión en contextos complejos, donde las respuestas
-        estándar ya no alcanzan. Trabajamos con una mirada sistémica que permite leer
-        la organización más allá de los síntomas visibles.
+        Acompañamos procesos de decisión en contextos complejos, donde las estructuras existentes
+        ya no ofrecen claridad.
       </p>
       <p>
-        La estrategia no se impone: se revela cuando la estructura se expande.
-        Claridad no es certeza, es capacidad de sostener la incertidumbre sin perder dirección.
-      </p>
-    </section>
-
-    <!-- GENESIA HUMANO -->
-    <section>
-      <h3>Genesia Humano</h3>
-      <p>
-        Acompañamos momentos de quiebre, transición y replanteo profundo.
-        No buscamos cerrar la crisis, sino habitarla con presencia y rigor.
-      </p>
-      <p>
-        La pregunta socrática es el eje: interrumpir automatismos,
-        desmontar relatos heredados y abrir un espacio donde algo nuevo
-        pueda emerger sin ser forzado.
-      </p>
-    </section>
-
-    <section class="alcance">
-  <p>
-    Trabajamos con organizaciones y personas que atraviesan procesos de redefinición.
-  </p>
-</section>
-    
-    <!-- MANIFIESTO -->
-    <section class="manifesto">
-      <h2>Manifiesto</h2>
-
-      <p>
-        <strong>No tememos al vacío.</strong><br>
-        El silencio no es ausencia. Es el espacio donde la estrategia empieza a tomar forma.
-      </p>
-
-      <p>
-        <strong>La crisis es un síntoma.</strong><br>
-        Indica que la estructura actual quedó pequeña para la vida que intenta expresarse.
-      </p>
-
-      <p>
-        <strong>La pregunta es la herramienta.</strong><br>
-        No ofrecemos respuestas rápidas. Sostenemos el proceso de búsqueda de verdad.
-      </p>
-
-      <p>
-        <strong>Silencio y presencia.</strong><br>
-        Menos ruido. Más profundidad. Ahí ocurre el trabajo real.
-      </p>
-    </section>
-
-    <section class="firma">
-  <p>
-    Genesia es una práctica de pensamiento estratégico y acompañamiento humano.
-  </p>
-</section>
-
-    <!-- CONTACTO -->
-    <section class="contact">
-      <p>Si sentís que es el momento de habitar tu propia transición, hablemos.</p>
-      <a href="mailto:vbgenesia@gmail.com" class="button">Contactar</a>
-    </section>
-
-  </main>
-</body>
-</html>
-
-<footer class="footer">
-  Genesia · 2026
-</footer>
+        El trabajo se orienta a una lectura sistémica, la expansión de marcos estratégicos
+        y la toma de decisiones en escenarios de incertid
