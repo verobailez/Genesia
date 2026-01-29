@@ -19,6 +19,41 @@ w<!DOCTYPE html>
 }
 
 /* Estilo general */
+    /* Hero centrado */
+.hero {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.enso {
+  width: 140px;
+  margin-bottom: 30px;
+}
+
+/* Caja Genesia */
+.brand-box {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid #2B2B2B;
+  font-size: 36px;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+/* Contenido editorial corrido */
+.content {
+  max-width: 600px;
+  margin-left: 80px;   /* 👈 acá está el “al costado” */
+  text-align: left;
+}
+
+/* En mobile se recentra solo */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    padding: 0 20px;
+  }
+}
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #F4EFE7; /* beige cálido */
@@ -29,12 +64,18 @@ body {
 }
 
 /* Símbolo Ensō */
-.enso {
-  font-size: 64px;
+.enso-container {
+  display: flex;
+  justify-content: center;
   margin-bottom: 40px;
-  color: #2B2B2B;
 }
 
+.enso {
+  width: 140px;
+  height: auto;
+  display: block;
+}
+    
 /* Título principal */
 h1 {
   font-size: 32px;
@@ -81,15 +122,15 @@ a.button:hover {
   Pensar es un acto de responsabilidad.
 </p>
 <body>
-  
-  <main class="container">
 
-   <div class="enso-container">
-  <img src="enso.svg" alt="Enso" class="enso">
+   <div class="hero">
+  <img src="enso.jpg" alt="Enso" class="enso">
+  <div class="brand-box">Genesia</div>
 </div>
 
-<h1>Genesia</h1>
-    
+  <main class="container">
+
+  
     <!-- HERO -->
     <section class="hero">
       <p>Decisiones estratégicas y crisis vitales.</p>
