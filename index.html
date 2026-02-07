@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genesia</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg-main: #f4f1ec;
-      --bg-soft: #ede8e1;
-
       --bg-empresas: #e9e3d8;
       --bg-humano: #efede9;
 
@@ -46,6 +43,9 @@
 
     section {
       margin-bottom: 80px;
+    }
+
+    .boxed {
       padding: 48px 24px;
       border-radius: 16px;
     }
@@ -74,7 +74,6 @@
     .subtitle {
       font-size: 1.1rem;
       color: var(--text-main);
-      margin-bottom: 8px;
     }
 
     .divider {
@@ -85,14 +84,10 @@
     }
 
     /* ENSO */
-    .enso {
-      margin-bottom: 24px;
-    }
-
     .enso img {
       width: 64px;
-      height: auto;
       opacity: 0.85;
+      margin-bottom: 24px;
     }
 
     /* Botones */
@@ -111,29 +106,17 @@
       text-decoration: none;
       color: var(--text-main);
       border: 1px solid var(--divider);
-      transition: all 0.3s ease;
+      transition: opacity 0.3s ease;
     }
 
-    .btn-empresas {
-      background-color: var(--btn-empresas);
-    }
+    .btn-empresas { background-color: var(--btn-empresas); }
+    .btn-humano   { background-color: var(--btn-humano); }
 
-    .btn-humano {
-      background-color: var(--btn-humano);
-    }
+    .btn:hover { opacity: 0.85; }
 
-    .btn:hover {
-      opacity: 0.85;
-    }
-
-    /* Secciones específicas */
-    .empresas {
-      background-color: var(--bg-empresas);
-    }
-
-    .humano {
-      background-color: var(--bg-humano);
-    }
+    /* Secciones con color */
+    .empresas { background-color: var(--bg-empresas); }
+    .humano   { background-color: var(--bg-humano); }
 
     .manifesto p {
       font-style: italic;
@@ -159,136 +142,82 @@
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2.4rem;
-      }
-      h2 {
-        font-size: 1.6rem;
-      }
-      main {
-        padding: 60px 20px;
-      }
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
 
 <body>
-  <main>
+<main>
 
-    <!-- HERO -->
-    <section>
-      <div class="enso">
-        <img src="enso.jpeg" alt="Enso Genesia">
-      </div>
+  <!-- HERO -->
+  <section>
+    <div class="enso">
+      <img src="enso.jpeg" alt="Enso Genesia">
+    </div>
 
-      <h1>Genesia</h1>
-      <p class="subtitle">Pensamiento estratégico para decidir en escenarios complejos</p>
-      <p>Acompañar el quiebre · Diseñar el próximo movimiento</p>
+    <h1>Genesia</h1>
+    <p class="subtitle">Pensamiento estratégico para decidir en escenarios complejos</p>
+    <p>Acompañar el quiebre · Diseñar el próximo movimiento</p>
 
-      <div class="buttons">
-        <a href="#empresas" class="btn btn-empresas">Genesia Empresas</a>
-        <a href="#humano" class="btn btn-humano">Genesia Humano</a>
-      </div>
-    </section>
+    <div class="buttons">
+      <a href="#empresas" class="btn btn-empresas">Genesia Empresas</a>
+      <a href="#humano" class="btn btn-humano">Genesia Humano</a>
+    </div>
+  </section>
 
-    <div class="divider"></div>
+  <div class="divider"></div>
 
-    <!-- QUÉ ES -->
-    <section>
-      <h2>Qué es Genesia</h2>
-      <p>
-        Genesia es un espacio de pensamiento estratégico aplicado a personas y organizaciones
-        que atraviesan momentos de crisis, bloqueo o transición.
-      </p>
-      <p>
-        Muchas veces el problema no está en lo que falta hacer,
-        sino en la forma en que se está observando la situación.
-      </p>
-      <p>
-        No propone respuestas rápidas ni fórmulas universales.
-        Propone revisar el marco desde el cual se decide.
-      </p>
-    </section>
+  <!-- QUÉ ES -->
+  <section>
+    <h2>Qué es Genesia</h2>
+    <p>Espacio de pensamiento estratégico para personas y organizaciones en crisis, bloqueo o transición.</p>
+    <p>El problema no siempre es qué hacer, sino desde dónde se está mirando.</p>
+    <p>No propone recetas rápidas. Propone revisar el marco de decisión.</p>
+  </section>
 
-    <div class="divider"></div>
+  <div class="divider"></div>
 
-    <!-- EMPRESAS -->
-    <section id="empresas" class="empresas">
-      <h2>Genesia Empresas</h2>
-      <p>
-        Acompañamiento estratégico para líderes, equipos y organizaciones
-        que necesitan decidir cuando los modelos habituales no alcanzan.
-      </p>
-      <p>
-        Lectura sistémica y diseño de cursos de acción en contextos complejos.
-      </p>
-      <p>
-        No optimiza lo existente: revisa la lógica desde la cual se está decidiendo.
-      </p>
+  <!-- EMPRESAS -->
+  <section id="empresas" class="boxed empresas">
+    <h2>Genesia Empresas</h2>
+    <p>Acompañamiento estratégico para decidir cuando los modelos habituales no alcanzan.</p>
+    <p>Lectura sistémica y diseño de cursos de acción en contextos complejos.</p>
 
-      <div class="buttons">
-        <a href="empresas.html" class="btn btn-empresas">Ir a Empresas</a>
-      </div>
-    </section>
+    <div class="buttons">
+      <a href="empresas.html" class="btn btn-empresas">Ir a Empresas</a>
+    </div>
+  </section>
 
-    <div class="divider"></div>
+  <div class="divider"></div>
 
-    <!-- HUMANO -->
-    <section id="humano" class="humano">
-      <h2>Genesia Humano</h2>
-      <p>
-        Espacios de acompañamiento individual para personas que necesitan
-        ordenar una situación o repensar su dirección personal o profesional.
-      </p>
-      <p>
-        Especialmente en momentos de quiebre, transición o replanteo profundo.
-      </p>
-      <p>
-        Pensar bien antes de avanzar, sin etiquetas ni empujes.
-      </p>
+  <!-- HUMANO -->
+  <section id="humano" class="boxed humano">
+    <h2>Genesia Humano</h2>
+    <p>Acompañamiento individual en momentos de quiebre o replanteo profundo.</p>
+    <p>Pensar bien antes de avanzar.</p>
 
-      <div class="buttons">
-        <a href="humano.html" class="btn btn-humano">Ir a Humano</a>
-      </div>
-    </section>
+    <div class="buttons">
+      <a href="humano.html" class="btn btn-humano">Ir a Humano</a>
+    </div>
+  </section>
 
-    <div class="divider"></div>
+  <div class="divider"></div>
 
-    <!-- MANIFIESTO -->
-    <section class="manifesto">
-      <h2>Manifiesto</h2>
-      <p>La crisis no es un error: es información.</p>
-      <p>El vacío indica que una forma terminó.</p>
-      <p>No aceleramos procesos. Sostenemos pensamiento.</p>
-      <p>Pensar bien es una forma de cuidado.</p>
-    </section>
+  <!-- CONTACTO -->
+  <section class="contact">
+    <h2>Contacto</h2>
+    <p>
+      <a href="mailto:vbgenesia@gmail.com">vbgenesia@gmail.com</a><br>
+      <a href="https://wa.me/541170668649">WhatsApp</a><br>
+      <a href="https://bit.ly/Genesia" target="_blank">bit.ly/Genesia</a><br>
+      Instagram: <a href="https://instagram.com/verobailez.genesia" target="_blank">@verobailez.genesia</a>
+    </p>
+  </section>
 
-    <div class="divider"></div>
+  <footer>Genesia · 2026</footer>
 
-    <!-- NO ES -->
-    <section>
-      <p class="no-is">No es terapia.<br>No es motivación.</p>
-      <p>Es pensamiento estratégico aplicado a decisiones reales.</p>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- CONTACTO -->
-    <section class="contact">
-      <h2>Contacto</h2>
-      <p>
-        <a href="mailto:vbgenesia@gmail.com">vbgenesia@gmail.com</a><br>
-        <a href="https://wa.me/541170668649">WhatsApp</a><br>
-        <a href="https://bit.ly/Genesia" target="_blank">bit.ly/Genesia</a><br>
-        Instagram: <a href="https://instagram.com/verobailez.genesia" target="_blank">@verobailez.genesia</a><br>
-        Facebook: Vero Bailez Genesia
-      </p>
-    </section>
-
-    <footer>
-      Genesia · 2026
-    </footer>
-
-  </main>
+</main>
 </body>
 </html>
