@@ -1,148 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genesia</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #F4EFE7;
+    :root {
+      --bg-main: #f4f1ec;
+      --bg-soft: #ede8e1;
+      --text-main: #2a2a2a;
+      --text-soft: #5a5a5a;
+      --divider: #cfcac3;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      color: #2B2B2B;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
       line-height: 1.7;
     }
 
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    .enso {
-      width: 120px;
-      margin: 0 auto 32px;
-      opacity: 0.6;
-    }
-
-    .brand-box {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      letter-spacing: 4px;
-      margin-bottom: 20px;
-    }
-
-    .subtitle {
-      font-size: 17px;
-      color: #3A3A3A;
-    }
-
-    .subtitle small {
-      display: block;
-      margin-top: 12px;
-      font-size: 14px;
-      color: #6F6A63;
-    }
-
-    /* GENERIC SECTION */
-    section {
-      padding: 80px 20px;
-    }
-
-    .container {
+    main {
       max-width: 720px;
       margin: 0 auto;
+      padding: 80px 24px;
       text-align: center;
     }
 
-    hr {
-      border: none;
-      height: 1px;
-      background-color: #D8D2C8;
-      margin: 32px auto;
-      width: 60px;
+    section {
+      margin-bottom: 80px;
     }
 
-    h2, h3 {
+    h1, h2 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 16px;
     }
 
     h2 {
-      font-size: 2.2rem;
-      margin-bottom: 28px;
-    }
-
-    h3 {
-      font-size: 22px;
+      font-size: 2rem;
       margin-bottom: 24px;
     }
 
     p {
-      font-size: 15px;
-      margin-bottom: 18px;
-      color: #3A3A3A;
+      font-size: 1rem;
+      color: var(--text-soft);
+      margin-bottom: 20px;
     }
 
-    /* SECTION COLORS */
-    .intro {
-      background-color: #F4EFE7;
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
     }
 
-    .empresas {
-      background-color: #F9F7F4;
+    .divider {
+      width: 40px;
+      height: 1px;
+      background-color: var(--divider);
+      margin: 40px auto;
     }
 
-    .humano {
-      background-color: #F1EFEA;
+    .manifesto p {
+      font-style: italic;
+      color: var(--text-main);
     }
 
-    .manifiesto {
-      background-color: #EFEAE1;
-    }
-
-    /* MANIFIESTO CORTO */
-    .manifiesto-corto {
+    .no-is {
       font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      text-align: center;
-      padding: 80px 20px;
-      background-color: #E8E2D7;
+      font-size: 1.2rem;
+      color: var(--text-main);
     }
 
-    /* CONTACTO */
-    .contacto {
-      background-color: #F4EFE7;
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    .contacto a {
-      display: block;
-      margin: 10px 0;
-      text-decoration: none;
-      color: #7A6F61;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
-
-    .contacto a:hover {
-      color: #2B2B2B;
+    .contact p {
+      margin-bottom: 8px;
     }
 
     footer {
-      text-align: center;
-      font-size: 11px;
-      color: #9A9A9A;
-      margin: 40px 0;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 60px;
     }
 
-    @media (max-width: 768px) {
-      section {
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      main {
         padding: 60px 20px;
       }
     }
@@ -150,96 +114,82 @@
 </head>
 
 <body>
+  <main>
 
-  <!-- HERO -->
-  <div class="hero">
-    <img src="enso.jpeg" alt="Ensō" class="enso">
-    <div class="brand-box">Genesia</div>
-    <div class="subtitle">
-      Para ordenar, decidir y avanzar
-      <small>Acompañar el quiebre · Diseñar la expansión</small>
-    </div>
-  </div>
+    <!-- Hero -->
+    <section>
+      <h1>Genesia</h1>
+      <p class="subtitle">Claridad estratégica para decidir cuando no está claro</p>
+      <p>Acompañar el quiebre · Diseñar el próximo movimiento</p>
+    </section>
 
-  <!-- INTRO -->
-  <section class="intro">
-    <div class="container">
-      <h2>Genesia</h2>
-      <p>
-        <strong>Genesia</strong> es un método estratégico aplicado a personas y proyectos
-        en momentos de crisis, bloqueo o transición.
-      </p>
-      <p>
-        Muchas veces el problema no está en lo que falta hacer,
-        sino en la forma en que se está observando la situación.
-      </p>
-      <p>
-        Cuando cambia el observador, cambian las decisiones posibles.
-      </p>
-    </div>
-  </section>
+    <div class="divider"></div>
 
-  <!-- EMPRESAS -->
-  <section class="empresas">
-    <div class="container">
-      <hr>
-      <h3>Genesia Empresas</h3>
-      <p>
-        Acompañamiento estratégico para líderes, equipos y organizaciones
-        que necesitan decidir en contextos complejos.
-      </p>
-      <p>
-        Lectura sistémica, claridad conceptual y diseño de acción
-        cuando los modelos conocidos ya no alcanzan.
-      </p>
-    </div>
-  </section>
+    <!-- Qué es -->
+    <section>
+      <h2>Qué es Genesia</h2>
+      <p>Genesia es un espacio de pensamiento estratégico aplicado a personas y organizaciones que atraviesan momentos de crisis, bloqueo o transición.</p>
+      <p>Muchas veces el problema no está en lo que falta hacer, sino en la forma en que se está observando la situación. Cuando cambia el observador, cambian las decisiones posibles.</p>
+      <p>Genesia no propone respuestas rápidas ni recetas universales. Propone claridad.</p>
+    </section>
 
-  <!-- HUMANO -->
-  <section class="humano">
-    <div class="container">
-      <hr>
-      <h3>Genesia Humano</h3>
-      <p>
-        Espacios de acompañamiento individual para momentos de quiebre,
-        transición o replanteo profundo.
-      </p>
-      <p>
-        Presencia, pregunta y lenguaje como herramientas para volver a elegir.
-      </p>
-    </div>
-  </section>
+    <div class="divider"></div>
 
-  <!-- MANIFIESTO LARGO -->
-  <section class="manifiesto">
-    <div class="container">
-      <hr>
-      <h3>Manifiesto</h3>
+    <!-- Empresas -->
+    <section>
+      <h2>Genesia Empresas</h2>
+      <p>Acompañamiento estratégico para líderes, equipos y organizaciones que necesitan decidir en contextos complejos.</p>
+      <p>Cuando crecer, cambiar o frenar ya no admite fórmulas conocidas.</p>
+      <p>Lectura sistémica, claridad conceptual y diseño de cursos de acción cuando los modelos habituales no alcanzan.</p>
+      <p>Genesia Empresas no optimiza lo existente: revisa el marco desde el cual se está decidiendo.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Humano -->
+    <section>
+      <h2>Genesia Humano</h2>
+      <p>Espacios de acompañamiento individual para personas que necesitan ordenar una situación, pensar una decisión relevante o redefinir dirección personal o profesional.</p>
+      <p>Especialmente en momentos de quiebre, transición o replanteo profundo.</p>
+      <p>Presencia, pregunta y lenguaje como herramientas para volver a elegir con mayor conciencia.</p>
+      <p>No se trata de empujar procesos ni de motivar. Se trata de pensar bien antes de avanzar.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Manifiesto -->
+    <section class="manifesto">
+      <h2>Manifiesto</h2>
       <p>No tememos al vacío. El vacío indica que una forma terminó.</p>
       <p>La crisis no es un error: es información.</p>
       <p>El ruido confunde. El silencio ordena.</p>
       <p>No aceleramos procesos. Sostenemos claridad.</p>
       <p>Pensar bien es una forma de cuidado.</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- MANIFIESTO CORTO -->
-  <div class="manifiesto-corto">
-    No es terapia.<br>
-    No es motivación.<br>
-    Es claridad para decidir y avanzar.
-  </div>
+    <div class="divider"></div>
 
-  <!-- CONTACTO -->
-  <section class="contacto">
-    <p>Si necesitás ordenar una situación y tomar una decisión, hablemos.</p>
-    <a href="mailto:vbgenesia@gmail.com">vbgenesia@gmail.com</a>
-    <a href="https://wa.me/541170668649" target="_blank">WhatsApp +54 11 7066 8649</a>
-  </section>
+    <!-- Qué no es -->
+    <section>
+      <p class="no-is">No es terapia.<br>No es motivación.</p>
+      <p>Es un espacio de pensamiento estratégico para decidir con mayor lucidez.</p>
+    </section>
 
-  <footer>
-    Genesia · 2026
-  </footer>
+    <div class="divider"></div>
 
+    <!-- Contacto -->
+    <section class="contact">
+      <h2>Contacto</h2>
+      <p>Cuando una decisión importa, la claridad con la que se aborda también.</p>
+      <p>Si estás en un punto donde avanzar solo no alcanza, conversemos.</p>
+      <p><strong>Email:</strong> vbgenesia@gmail.com</p>
+      <p><strong>WhatsApp:</strong> +54 11 7066 8649</p>
+    </section>
+
+    <footer>
+      Genesia · 2026
+    </footer>
+
+  </main>
 </body>
 </html>
