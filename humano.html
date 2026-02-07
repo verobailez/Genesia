@@ -2,105 +2,114 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genesia Humano</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    :root {
-      --bg-main: #f7f3ee;
-      --text-main: #2a2a2a;
-      --text-soft: #5a5a5a;
-      --divider: #d5d0c8;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.7;
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #f6f4f1;
+      color: #2e2e2e;
+      line-height: 1.6;
     }
 
-    main {
-      max-width: 680px;
+    .container {
+      max-width: 760px;
       margin: 0 auto;
       padding: 80px 24px;
-      text-align: center;
     }
 
-    section { margin-bottom: 80px; }
-
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
+    h1 {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: #3a3a3a;
     }
-
-    h1 { font-size: 2.6rem; margin-bottom: 16px; }
-    h2 { font-size: 1.8rem; margin-bottom: 24px; }
 
     p {
-      font-size: 1rem;
-      color: var(--text-soft);
-      margin-bottom: 20px;
+      font-size: 17px;
+      margin-bottom: 18px;
     }
 
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: var(--divider);
-      margin: 40px auto;
+    .highlight {
+      background-color: #ece8e2; /* tono humano */
+      padding: 28px;
+      border-radius: 10px;
+      margin: 40px 0;
     }
 
-    footer {
-      font-size: 0.85rem;
-      color: #888;
+    .contact {
+      margin-top: 48px;
+      font-size: 15px;
+      color: #4a4a4a;
+    }
+
+    .contact a {
+      color: #4a4a4a;
+      text-decoration: none;
+      border-bottom: 1px solid #cfc7b8;
+    }
+
+    .contact a:hover {
+      border-color: #a79f8d;
+    }
+
+    .btn-volver {
+      display: inline-block;
       margin-top: 60px;
+      padding: 10px 18px;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      color: #2e2e2e;
+      border: 1px solid #cfc7b8;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-volver:hover {
+      background-color: #ece8e2;
     }
   </style>
 </head>
 
 <body>
-<main>
+  <div class="container">
 
-  <!-- Hero -->
-  <section>
     <h1>Genesia Humano</h1>
-    <p>Un espacio para pensar cuando una decisión personal o profesional se vuelve crucial.</p>
-  </section>
 
-  <div class="divider"></div>
+    <p>
+      Genesia es un espacio para personas que necesitan detenerse,
+      ordenar ideas y revisar su dirección vital sin etiquetas
+      ni diagnósticos.
+    </p>
 
-  <!-- Qué es -->
-  <section>
-    <h2>Qué es</h2>
-    <p>Genesia Humano es un espacio de acompañamiento individual para ordenar ideas, revisar decisiones y recuperar dirección.</p>
-    <p>Especialmente en momentos de quiebre, transición o replanteo profundo.</p>
-  </section>
+    <div class="highlight">
+      <p>
+        No es terapia ni reemplaza tratamientos clínicos.
+        Es un trabajo de pensamiento, claridad y conversación
+        profunda en momentos de transición.
+      </p>
+    </div>
 
-  <div class="divider"></div>
+    <p>
+      Para quienes sienten que seguir pensando igual
+      ya no alcanza, pero tampoco buscan fórmulas externas.
+    </p>
 
-  <!-- Cómo se trabaja -->
-  <section>
-    <h2>Cómo se trabaja</h2>
-    <p>Conversaciones uno a uno, confidenciales, con foco en pensamiento, lenguaje y criterio.</p>
-    <p>No se trata de motivar ni de empujar procesos, sino de pensar bien antes de avanzar.</p>
-  </section>
+    <div class="contact">
+      <p>
+        📩 <a href="mailto:verobailez@gmail.com">verobailez@gmail.com</a><br>
+        📱 <a href="https://wa.me/549XXXXXXXXXX">WhatsApp</a><br>
+        🌐 <a href="https://bit.ly/Genesia" target="_blank">bit.ly/Genesia</a><br>
+        📷 Instagram: <a href="https://instagram.com/verobailez.genesia" target="_blank">@verobailez.genesia</a><br>
+        📘 Facebook: Vero Bailez Genesia
+      </p>
+    </div>
 
-  <div class="divider"></div>
+    <a href="index.html" class="btn-volver">← Volver a Genesia</a>
 
-  <!-- Qué no es -->
-  <section>
-    <p><em>No es terapia.<br>No es coaching tradicional.</em></p>
-    <p>Es un espacio de pensamiento estratégico aplicado a la vida personal y profesional.</p>
-  </section>
-
-  <footer>
-    Genesia · Humano
-  </footer>
-
-</main>
+  </div>
 </body>
 </html>
