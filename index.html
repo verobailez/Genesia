@@ -23,6 +23,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-main);
@@ -41,10 +45,9 @@
       margin-bottom: 80px;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
-      letter-spacing: 0.3px;
     }
 
     h1 {
@@ -55,6 +58,11 @@
     h2 {
       font-size: 2rem;
       margin-bottom: 24px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
     }
 
     p {
@@ -76,6 +84,40 @@
       margin: 40px auto;
     }
 
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border: 1px solid var(--divider);
+      background-color: transparent;
+      color: var(--text-main);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--bg-soft);
+    }
+
+    .faq {
+      text-align: left;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 28px;
+    }
+
     .manifesto p {
       font-style: italic;
       color: var(--text-main);
@@ -85,10 +127,6 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
       color: var(--text-main);
-    }
-
-    .contact p {
-      margin-bottom: 8px;
     }
 
     footer {
@@ -121,6 +159,11 @@
       <h1>Genesia</h1>
       <p class="subtitle">Claridad estratégica para decidir cuando no está claro</p>
       <p>Acompañar el quiebre · Diseñar el próximo movimiento</p>
+
+      <div class="buttons">
+        <a href="#empresas" class="btn">Genesia Empresas</a>
+        <a href="#humano" class="btn">Genesia Humano</a>
+      </div>
     </section>
 
     <div class="divider"></div>
@@ -129,30 +172,88 @@
     <section>
       <h2>Qué es Genesia</h2>
       <p>Genesia es un espacio de pensamiento estratégico aplicado a personas y organizaciones que atraviesan momentos de crisis, bloqueo o transición.</p>
-      <p>Muchas veces el problema no está en lo que falta hacer, sino en la forma en que se está observando la situación. Cuando cambia el observador, cambian las decisiones posibles.</p>
-      <p>Genesia no propone respuestas rápidas ni recetas universales. Propone claridad.</p>
+      <p>Muchas veces el problema no está en lo que falta hacer, sino en la forma en que se está observando la situación.</p>
+      <p>Genesia no propone recetas. Propone claridad.</p>
     </section>
 
     <div class="divider"></div>
 
     <!-- Empresas -->
-    <section>
+    <section id="empresas">
       <h2>Genesia Empresas</h2>
-      <p>Acompañamiento estratégico para líderes, equipos y organizaciones que necesitan decidir en contextos complejos.</p>
-      <p>Cuando crecer, cambiar o frenar ya no admite fórmulas conocidas.</p>
-      <p>Lectura sistémica, claridad conceptual y diseño de cursos de acción cuando los modelos habituales no alcanzan.</p>
-      <p>Genesia Empresas no optimiza lo existente: revisa el marco desde el cual se está decidiendo.</p>
+      <p>Acompañamiento estratégico para organizaciones y equipos que necesitan decidir en escenarios complejos.</p>
+
+      <div class="faq">
+        <div class="faq-item">
+          <h3>¿Qué es?</h3>
+          <p>Un espacio de pensamiento estratégico para ordenar ideas, revisar decisiones y clarificar dirección en contextos de cambio.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿A quién acompaña?</h3>
+          <p>Empresas, equipos directivos y organizaciones en procesos de redefinición, crecimiento o tensión interna.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Es consultoría tradicional?</h3>
+          <p>No. No trabaja con soluciones cerradas ni modelos estándar.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Es coaching organizacional?</h3>
+          <p>No. Se apoya en pensamiento, criterio y claridad estratégica.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Cómo es el acompañamiento?</h3>
+          <p>Conversaciones estratégicas, individuales o grupales, adaptadas a cada organización.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Cuándo es útil?</h3>
+          <p>Cuando los indicadores no alcanzan para decidir.</p>
+        </div>
+      </div>
     </section>
 
     <div class="divider"></div>
 
     <!-- Humano -->
-    <section>
+    <section id="humano">
       <h2>Genesia Humano</h2>
-      <p>Espacios de acompañamiento individual para personas que necesitan ordenar una situación, pensar una decisión relevante o redefinir dirección personal o profesional.</p>
-      <p>Especialmente en momentos de quiebre, transición o replanteo profundo.</p>
-      <p>Presencia, pregunta y lenguaje como herramientas para volver a elegir con mayor conciencia.</p>
-      <p>No se trata de empujar procesos ni de motivar. Se trata de pensar bien antes de avanzar.</p>
+      <p>Espacio de acompañamiento individual para ordenar ideas y redefinir dirección personal o profesional.</p>
+
+      <div class="faq">
+        <div class="faq-item">
+          <h3>¿Qué es?</h3>
+          <p>Un espacio de pensamiento estratégico para personas en quiebre o transición.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Es coaching?</h3>
+          <p>No en el sentido tradicional. Trabaja con claridad, no con motivación.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Es terapia?</h3>
+          <p>No reemplaza ningún tratamiento clínico.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Cómo son los encuentros?</h3>
+          <p>Conversaciones 1 a 1, confidenciales y reflexivas.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Qué se trabaja?</h3>
+          <p>Decisiones, bloqueos conceptuales, prioridades y rumbo.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Cuánto dura el proceso?</h3>
+          <p>Depende de cada persona. No hay programas cerrados.</p>
+        </div>
+      </div>
     </section>
 
     <div class="divider"></div>
@@ -162,9 +263,7 @@
       <h2>Manifiesto</h2>
       <p>No tememos al vacío. El vacío indica que una forma terminó.</p>
       <p>La crisis no es un error: es información.</p>
-      <p>El ruido confunde. El silencio ordena.</p>
       <p>No aceleramos procesos. Sostenemos claridad.</p>
-      <p>Pensar bien es una forma de cuidado.</p>
     </section>
 
     <div class="divider"></div>
@@ -172,16 +271,15 @@
     <!-- Qué no es -->
     <section>
       <p class="no-is">No es terapia.<br>No es motivación.</p>
-      <p>Es un espacio de pensamiento estratégico para decidir con mayor lucidez.</p>
+      <p>Es pensamiento estratégico aplicado.</p>
     </section>
 
     <div class="divider"></div>
 
     <!-- Contacto -->
-    <section class="contact">
+    <section>
       <h2>Contacto</h2>
       <p>Cuando una decisión importa, la claridad con la que se aborda también.</p>
-      <p>Si estás en un punto donde avanzar solo no alcanza, conversemos.</p>
       <p><strong>Email:</strong> vbgenesia@gmail.com</p>
       <p><strong>WhatsApp:</strong> +54 11 7066 8649</p>
     </section>
