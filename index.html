@@ -90,7 +90,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('./img/hero.png');
+      background-image: url('./portrait-2.jpg');
       background-size: cover;
       background-position: center 30%;
       filter: brightness(0.55) saturate(0.8);
@@ -116,22 +116,16 @@
       max-width: 900px;
     }
     .hero-enso {
-      width: 52px;
-      height: 52px;
+      width: 72px;
+      height: 72px;
       margin-bottom: 2rem;
-      opacity: 0.9;
+      opacity: 0.88;
+      filter: invert(1) brightness(1.2);
+      animation: fadeEnso 1.5s ease forwards;
     }
-    .hero-enso circle {
-      fill: none;
-      stroke: rgba(244,239,230,0.85);
-      stroke-width: 3;
-      stroke-dasharray: 280;
-      stroke-dashoffset: 280;
-      stroke-linecap: round;
-      animation: drawEnso 2s ease forwards 0.5s;
-    }
-    @keyframes drawEnso {
-      to { stroke-dashoffset: 30; }
+    @keyframes fadeEnso {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 0.88; transform: scale(1); }
     }
     .hero h1 {
       font-family: var(--serif);
@@ -462,7 +456,7 @@
 
     /* ── VERÓNICA ── */
     .veronica {
-      background: var(--orange);
+      background: var(--white);
     }
     .veronica-inner {
       max-width: 1100px;
@@ -649,7 +643,7 @@
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <img src="./img/enso.jpeg" alt="Enso Genesia" class="hero-enso" />
+      <img src="./enso.jpeg" alt="Enso Genesia" class="hero-enso" />
       <h1>Genesia</h1>
       <p class="hero-tagline">Pensamiento estratégico para decidir<br>en escenarios complejos</p>
       <p class="hero-sub">Acompañar el quiebre &nbsp;·&nbsp; Diseñar el próximo movimiento</p>
@@ -675,7 +669,7 @@
         </div>
       </div>
       <div class="que-es-visual fade-up">
-        <img src="./img/speaking-main.jpg" alt="Verónica Bailez — conferencia" loading="lazy" />
+        <img src="./speaking-main.jpg" alt="Verónica Bailez — conferencia" loading="lazy" />
         <p class="que-es-caption">Buenos Aires · 2025</p>
       </div>
     </div>
@@ -720,6 +714,11 @@
           <p>Lectura sistémica de la situación. Identificación de los marcos que están condicionando la lectura del problema y el rango de respuestas disponibles.</p>
         </div>
         <div class="modulo fade-up">
+          <p class="modulo-tag">Módulo I</p>
+          <h3>Diagnóstico estructural</h3>
+          <p>Lectura sistémica de la situación. Identificación de los marcos que están condicionando la lectura del problema y el rango de respuestas disponibles.</p>
+        </div>
+        <div class="modulo fade-up">
           <p class="modulo-tag">Módulo II</p>
           <h3>Diseño de cursos de acción</h3>
           <p>Construcción de escenarios y diferenciación de trayectorias. Herramientas para decidir con criterio en contextos ambiguos o de alta complejidad.</p>
@@ -732,19 +731,19 @@
       </div>
       <div class="empresas-gallery fade-up">
         <div class="gallery-img tall">
-          <img src="./img/speaking-3.png" alt="Conferencia institucional" loading="lazy" />
+          <img src="./speaking-3.png" alt="Conferencia institucional" loading="lazy" />
         </div>
         <div class="gallery-img">
-          <img src="./img/institutional.jpg" alt="Inteligencia emocional — disertación" loading="lazy" />
+          <img src="./institutional.jpg" alt="Inteligencia emocional — disertación" loading="lazy" />
         </div>
         <div class="gallery-img">
-          <img src="./img/workshop.png" alt="Formación agentes — GCBA" loading="lazy" />
+          <img src="./workshop.png" alt="Formación agentes — GCBA" loading="lazy" />
         </div>
         <div class="gallery-img">
-          <img src="./img/speaking-2.jpg" alt="Auditorio" loading="lazy" />
+          <img src="./speaking-2.jpg" alt="Auditorio" loading="lazy" />
         </div>
         <div class="gallery-img">
-          <img src="./img/portrait-2.jpg" alt="Verónica Bailez" loading="lazy" />
+          <img src="./portrait-2.jpg" alt="Verónica Bailez" loading="lazy" />
         </div>
       </div>
       <div class="empresas-cta fade-up">
@@ -758,7 +757,7 @@
   <section class="humano" id="humano">
     <div class="humano-inner">
       <div class="humano-visual fade-up">
-        <img src="./img/portrait.jpg" alt="Verónica Bailez" loading="lazy" />
+        <img src="./portrait.jpg" alt="Verónica Bailez" loading="lazy" />
       </div>
       <div class="humano-text fade-up">
         <span class="section-label">Genesia Humano</span>
@@ -791,7 +790,7 @@
         </div>
       </div>
       <div class="veronica-visual fade-up">
-        <img src="./img/portrait-3.jpg" alt="Verónica Bailez" loading="lazy" />
+        <img src="./portrait-3.jpg" alt="Verónica Bailez" loading="lazy" />
       </div>
     </div>
   </section>
@@ -828,7 +827,7 @@
     const heroBg = document.getElementById('heroBg');
     const img = new Image();
     img.onload = () => heroBg.classList.add('loaded');
-    img.src = './img/hero.png';
+    img.src = './portrait-2.jpg';
 
     // Fade up on scroll
     const observer = new IntersectionObserver((entries) => {
