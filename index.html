@@ -590,17 +590,21 @@
 
     /* ── FADE IN ── */
     .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .fade-up.visible {
+    .js-ready .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .js-ready .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .fade-up:nth-child(2) { transition-delay: 0.1s; }
-    .fade-up:nth-child(3) { transition-delay: 0.2s; }
-    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .js-ready .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .js-ready .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .js-ready .fade-up:nth-child(4) { transition-delay: 0.3s; }
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
@@ -646,7 +650,7 @@
       <img src="./enso.jpeg" alt="Enso Genesia" class="hero-enso" />
       <h1>Genesia</h1>
       <p class="hero-tagline">Pensamiento estratégico para decidir<br>en escenarios complejos</p>
-      <p class="hero-sub">Acompañar el quiebre &nbsp;·&nbsp; Diseñar el próximo movimiento</p>
+      <p class="hero-sub">Revisar el marco &nbsp;·&nbsp; Diseñar el próximo movimiento</p>
       <div class="hero-ctas">
         <a href="#empresas" class="btn btn-primary">Genesia Empresas</a>
         <a href="#humano" class="btn btn-outline">Genesia Humano</a>
@@ -711,7 +715,4 @@
         <div class="modulo fade-up">
           <p class="modulo-tag">Módulo I</p>
           <h3>Diagnóstico estructural</h3>
-          <p>Lectura sistémica de la situación. Identificación de los marcos que están condicionando la lectura del problema y el rango de respuestas disponibles.</p>
-        </div>
-        <div class="modulo fade-up">
-          <p class="mo
+          <p>Lectura sistémica de la situación. Identificación de los marcos que están condicionando la lectura del problema
