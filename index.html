@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genesia — Pensamiento estratégico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F4EFE6;
+      --cream-dark: #EDE6D9;
+      --ink: #1A1713;
+      --ink-soft: #3D3830;
+      --terracotta: #A0623A;
+      --terracotta-light: #C4845A;
+      --stone: #8A8278;
+      --stone-light: #BFB9B0;
+      --white: #FDFAF6;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      background: transparent;
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(244, 239, 230, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(160,98,58,0.12);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 0 6rem 0;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('./portrait-2.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.55) saturate(0.8);
+      transform: scale(1.03);
+      transition: transform 8s ease;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26,23,19,0.35) 0%,
+        rgba(26,23,19,0.45) 40%,
+        rgba(26,23,19,0.78) 75%,
+        rgba(26,23,19,0.94) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 2.5rem;
+      max-width: 900px;
+    }
+    .hero-enso {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 2rem;
+      opacity: 0.88;
+      filter: invert(1) brightness(1.2);
+      animation: fadeEnso 1.5s ease forwards;
+    }
+    @keyframes fadeEnso {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 0.88; transform: scale(1); }
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tagline {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(244,239,230,0.82);
+      margin-bottom: 0.8rem;
+      line-height: 1.4;
+    }
+    .hero-sub {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(160,98,58,0.9);
+      margin-bottom: 3rem;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: var(--white);
+      border: 1px solid var(--terracotta);
+    }
+    .btn-primary:hover {
+      background: var(--terracotta-light);
+      border-color: var(--terracotta-light);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(244,239,230,0.5);
+    }
+    .btn-outline:hover {
+      background: rgba(244,239,230,0.1);
+      border-color: rgba(244,239,230,0.8);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 2.5rem; }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* ── QUÉ ES GÉNESIA ── */
+    .que-es {
+      background: var(--white);
+      max-width: 100%;
+    }
+    .que-es-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .que-es h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+    .que-es p {
+      color: var(--ink-soft);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .que-es p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .tle-block {
+      background: var(--cream-dark);
+      border-left: 2px solid var(--terracotta);
+      padding: 2rem 2rem 2rem 2rem;
+      margin-top: 2.5rem;
+    }
+    .tle-block .tle-title {
+      font-family: var(--serif);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+    }
+    .tle-block p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+    .que-es-visual {
+      position: relative;
+    }
+    .que-es-visual img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .que-es-caption {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--stone);
+      margin-top: 1rem;
+      text-align: right;
+    }
+
+    /* ── PILARES ── */
+    .pilares {
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .pilares-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pilares h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      margin-bottom: 4rem;
+      color: var(--cream);
+    }
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .pilar {
+      border-top: 1px solid rgba(244,239,230,0.15);
+      padding-top: 2rem;
+    }
+    .pilar-num {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
+    .pilar h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+    .pilar p {
+      font-size: 0.9rem;
+      color: rgba(244,239,230,0.65);
+      line-height: 1.7;
+    }
+
+    /* ── EMPRESAS ── */
+    .empresas {
+      background: var(--cream);
+      padding-top: 7rem;
+      padding-bottom: 0;
+    }
+    .empresas-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .empresas h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .empresas-lead {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--ink-soft);
+      max-width: 680px;
+      margin-bottom: 4rem;
+      line-height: 1.6;
+    }
+    .modulos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--stone-light);
+      margin-bottom: 5rem;
+    }
+    .modulo {
+      padding: 2.5rem;
+      border-right: 1px solid var(--stone-light);
+      transition: background 0.25s;
+    }
+    .modulo:last-child { border-right: none; }
+    .modulo:hover { background: var(--cream-dark); }
+    .modulo-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.2rem;
+    }
+    .modulo h3 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .modulo p {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+    .empresas-gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3px;
+      margin-bottom: 5rem;
+    }
+    .gallery-img {
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .gallery-img:hover img { transform: scale(1.04); }
+    .gallery-img.tall { grid-row: span 2; }
+    .gallery-img.tall img { height: 500px; }
+    .gallery-img:not(.tall) img { height: 248px; }
+    .empresas-cta {
+      padding: 4rem 0 7rem;
+    }
+    .empresas-cta p {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+
+    /* ── HUMANO ── */
+    .humano {
+      background: var(--cream-dark);
+    }
+    .humano-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .humano-visual img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .humano-text .section-label { margin-bottom: 1.5rem; }
+    .humano-text h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+    .humano-text p {
+      color: var(--ink-soft);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .humano-text blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--terracotta);
+      border-left: 2px solid var(--terracotta);
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+      line-height: 1.6;
+    }
+
+    /* ── VERÓNICA ── */
+    .veronica {
+      background: var(--white);
+    }
+    .veronica-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .veronica-text h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+    .veronica-subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 2.5rem;
+    }
+    .veronica-text p {
+      color: var(--ink-soft);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .credenciales {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .credencial {
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      color: var(--stone);
+      padding-left: 1rem;
+      border-left: 1px solid var(--terracotta);
+    }
+    .credencial span {
+      color: var(--ink-soft);
+      font-weight: 400;
+    }
+    .veronica-visual {
+      position: relative;
+      margin-top: 2rem;
+    }
+    .veronica-visual img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .veronica-visual::before {
+      content: '';
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      right: 1rem;
+      bottom: 1rem;
+      border: 1px solid var(--stone-light);
+      z-index: -1;
+    }
+
+    /* ── CONTACTO ── */
+    .contacto {
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      padding: 7rem 2.5rem;
+    }
+    .contacto h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      margin-bottom: 1rem;
+      color: var(--cream);
+    }
+    .contacto p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: rgba(244,239,230,0.65);
+      margin-bottom: 3.5rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contacto-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .contacto a.btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.8rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(244,239,230,0.2);
+      color: var(--cream);
+      transition: all 0.25s;
+    }
+    .contacto a.btn-contact:hover {
+      background: rgba(244,239,230,0.08);
+      border-color: rgba(160,98,58,0.6);
+    }
+    .contacto a.btn-contact.primary {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+    }
+    .contacto a.btn-contact.primary:hover {
+      background: var(--terracotta-light);
+      border-color: var(--terracotta-light);
+    }
+    .footer-note {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: rgba(244,239,230,0.3);
+      margin-top: 4rem;
+    }
+
+    /* ── FADE IN ── */
+    .fade-up {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .js-ready .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .js-ready .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .js-ready .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .js-ready .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .js-ready .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.2rem; }
+      .hero-content { padding: 0 1.2rem; }
+
+      .que-es-inner { display: block; }
+      .que-es-visual { margin-top: 2.5rem; }
+      .que-es-visual img { height: 280px; }
+
+      .pilares-grid { display: block; }
+      .pilar { margin-bottom: 2rem; }
+
+      .humano-inner { display: block; }
+      .humano-visual { margin-bottom: 2.5rem; }
+      .humano-visual img { height: 320px; }
+
+      .veronica-inner { display: block; }
+      .veronica-visual { margin-top: 2.5rem; }
+      .veronica-visual img { aspect-ratio: auto; height: 320px; }
+      .veronica-visual::before { display: none; }
+
+      .modulos { display: block; border: none; }
+      .modulo {
+        border: 1px solid var(--stone-light);
+        margin-bottom: 1rem;
+      }
+
+      .empresas-gallery { display: block; }
+      .gallery-img { margin-bottom: 3px; }
+      .gallery-img img { height: 200px; width: 100%; object-fit: cover; }
+      .gallery-img.tall img { height: 200px; }
+
+      .contacto-links { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Genesia</a>
+    <ul class="nav-links">
+      <li><a href="#que-es">El marco</a></li>
+      <li><a href="#empresas">Empresas</a></li>
+      <li><a href="#humano">Humano</a></li>
+      <li><a href="#veronica">Verónica</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="./enso.jpeg" alt="Enso Genesia" class="hero-enso" />
+      <h1>Genesia</h1>
+      <p class="hero-tagline">Pensamiento estratégico para decidir<br>en escenarios complejos</p>
+      <p class="hero-sub">Revisar el marco &nbsp;·&nbsp; Diseñar el próximo movimiento</p>
+      <div class="hero-ctas">
+        <a href="#empresas" class="btn btn-primary">Genesia Empresas</a>
+        <a href="#humano" class="btn btn-outline">Genesia Humano</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ ES GÉNESIA -->
+  <section class="que-es" id="que-es">
+    <div class="que-es-inner">
+      <div class="fade-up">
+        <span class="section-label">El marco</span>
+        <h2>El problema no siempre es qué hacer.<br>Es desde dónde se está mirando.</h2>
+        <p>Genesia es un espacio de pensamiento estratégico para personas y organizaciones que necesitan revisar su marco de decisión en momentos de cambio, tensión o replanteo profundo.</p>
+        <p>No propone recetas rápidas. Trabaja sobre la estructura interna desde la cual se lee la realidad, se perciben las opciones y se toman decisiones. Esa estructura puede ser revisada. Puede ser reconfigurada.</p>
+        <p><strong>Antes de decidir qué hacer, hay que entender desde dónde se está decidiendo.</strong></p>
+        <div class="tle-block">
+          <p class="tle-title">Teoría de la Libertad Estructural</p>
+          <p>Entre lo que ocurre y lo que hacemos existe una estructura. Esa estructura no es fija ni dada — es el conjunto de marcos, narrativas y disposiciones desde los que operamos. Genesia trabaja en ese espacio: el único donde la transformación real es posible.</p>
+        </div>
+      </div>
+      <div class="que-es-visual fade-up">
+        <img src="./speaking-main.jpg" alt="Verónica Bailez — conferencia" loading="lazy" />
+        <p class="que-es-caption">Buenos Aires · 2025</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section class="pilares">
+    <div class="pilares-inner">
+      <h2 class="fade-up">Lo que Genesia trabaja</h2>
+      <div class="pilares-grid">
+        <div class="pilar fade-up">
+          <div class="pilar-num">01</div>
+          <h3>Lectura estructural</h3>
+          <p>Identificar los marcos desde los cuales se está interpretando la situación. El problema visible no siempre es el problema real.</p>
+        </div>
+        <div class="pilar fade-up">
+          <div class="pilar-num">02</div>
+          <h3>Campo de posibilidad</h3>
+          <p>Ampliar el rango de lo que se percibe como posible. La saturación de opciones paraliza tanto como su ausencia. El trabajo es estructural.</p>
+        </div>
+        <div class="pilar fade-up">
+          <div class="pilar-num">03</div>
+          <h3>Resolución y acción</h3>
+          <p>Diseñar cursos de acción que sean coherentes con la estructura revisada. No gestión de síntomas: criterio para decidir bien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPRESAS -->
+  <section class="empresas" id="empresas">
+    <div class="empresas-inner">
+      <div class="fade-up">
+        <span class="section-label">Genesia Empresas</span>
+        <h2>Cuando los modelos habituales<br>ya no alcanzan</h2>
+        <p class="empresas-lead">Acompañamiento estratégico para líderes, equipos y organizaciones que necesitan pensar mejor sus decisiones antes de actuar.</p>
+      </div>
+      <div class="modulos">
+        <div class="modulo fade-up">
+          <p class="modulo-tag">Módulo I</p>
+          <h3>Diagnóstico estructural</h3>
+          <p>Lectura sistémica de la situación. Identificación de los marcos que están condicionando la lectura del problema y el rango de respuestas disponibles.</p>
+        </div>
+        <div class="modulo fade-up">
+          <p class="modulo-tag">Módulo II</p>
+          <h3>Diseño de cursos de acción</h3>
+          <p>Construcción de escenarios y diferenciación de trayectorias. Herramientas para decidir con criterio en contextos ambiguos o de alta complejidad.</p>
+        </div>
+        <div class="modulo fade-up">
+          <p class="modulo-tag">Módulo III</p>
+          <h3>Liderazgo en transición</h3>
+          <p>Formación de líderes y supervisores en organizaciones que atraviesan cambio. De la ejecución al criterio: desarrollar capacidad de conducción real.</p>
+        </div>
+      </div>
+      <div class="empresas-gallery fade-up">
+        <div class="gallery-img tall">
+          <img src="./speaking-3.png" alt="Conferencia institucional" loading="lazy" />
+        </div>
+        <div class="gallery-img">
+          <img src="./institutional.jpg" alt="Inteligencia emocional — disertación" loading="lazy" />
+        </div>
+        <div class="gallery-img">
+          <img src="./workshop.png" alt="Formación agentes — GCBA" loading="lazy" />
+        </div>
+        <div class="gallery-img">
+          <img src="./speaking-2.jpg" alt="Auditorio" loading="lazy" />
+        </div>
+        <div class="gallery-img">
+          <img src="./portrait-2.jpg" alt="Verónica Bailez" loading="lazy" />
+        </div>
+      </div>
+      <div class="empresas-cta fade-up">
+        <p>Genesia Empresas trabaja con organizaciones públicas y privadas, equipos directivos y mandos medios en procesos de formación, acompañamiento estratégico y desarrollo de liderazgo.</p>
+        <a href="#contacto" class="btn btn-primary">Consultar disponibilidad</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HUMANO -->
+  <section class="humano" id="humano">
+    <div class="humano-inner">
+      <div class="humano-visual fade-up">
+        <img src="./portrait.jpg" alt="Verónica Bailez" loading="lazy" />
+      </div>
+      <div class="humano-text fade-up">
+        <span class="section-label">Genesia Humano</span>
+        <h2>Detenerse.<br>Ordenar.<br>Elegir desde otro lugar.</h2>
+        <p>Para personas que sienten que algo se agotó — un modelo de vida, una dirección, una forma de entenderse a sí mismas — y que necesitan pensar con profundidad antes de avanzar.</p>
+        <blockquote>Para quienes sienten que seguir pensando igual ya no alcanza, pero tampoco buscan fórmulas externas.</blockquote>
+        <p>No es terapia. No reemplaza tratamientos clínicos. Es un trabajo de pensamiento, claridad y conversación profunda en momentos de transición o replanteo.</p>
+        <p>El punto de partida no es el síntoma. Es la estructura desde la cual se está interpretando la situación. Desde ahí se trabaja.</p>
+        <a href="#contacto" class="btn btn-primary" style="margin-top:1rem">Iniciar una conversación</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERÓNICA -->
+  <section class="veronica" id="veronica">
+    <div class="veronica-inner">
+      <div class="veronica-text fade-up">
+        <span class="section-label">Fundadora</span>
+        <h2>Verónica Bailez</h2>
+        <p class="veronica-subtitle">Abogada · Coach Ontológica · Pensadora estratégica</p>
+        <p>Más de veinte años en gestión pública en la Ciudad de Buenos Aires construyeron en Verónica algo que no se obtiene en un aula: la capacidad de leer organizaciones reales, personas reales, bajo presión real.</p>
+        <p>Ese recorrido — sumado a una formación filosófica profunda y una práctica sostenida como coach ontológica — es la materia prima de Genesia. No un método importado. Una teoría elaborada desde adentro, con el rigor de quien sabe que las ideas tienen que poder probarse en la práctica.</p>
+        <p>La Teoría de la Libertad Estructural (TLE), el Método Genesia y los proyectos que lo expresan son el resultado de ese trabajo: años de pensar, aplicar, validar y escribir.</p>
+        <div class="credenciales">
+          <p class="credencial">Abogada &nbsp;·&nbsp; <span>Universidad de Buenos Aires</span></p>
+          <p class="credencial">Coach Ontológica Certificada &nbsp;·&nbsp; <span>ICEBA · Axon Training</span></p>
+          <p class="credencial">Gestión pública &nbsp;·&nbsp; <span>GCBA · +20 años</span></p>
+          <p class="credencial">Publicada en &nbsp;·&nbsp; <span>tres antologías literarias</span></p>
+          <p class="credencial">Fundadora &nbsp;·&nbsp; <span>Genesia · 2024</span></p>
+        </div>
+      </div>
+      <div class="veronica-visual fade-up">
+        <img src="./portrait-3.jpg" alt="Verónica Bailez" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <h2 class="fade-up">¿Hablamos?</h2>
+    <p class="fade-up">El primer paso es siempre una conversación.</p>
+    <div class="contacto-links fade-up">
+      <a href="https://wa.me/541170668649" class="btn-contact primary" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="/cdn-cgi/l/email-protection#f3909c9d879290879cb394969d96809a92dd9281" class="btn-contact">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <span class="__cf_email__" data-cfemail="52313d3c263331263d1235373c37213b337c3320">[email&#160;protected]</span>
+      </a>
+      <a href="https://instagram.com/verobailez.genesia" class="btn-contact" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+    <p class="footer-note">Genesia · Buenos Aires · 2026</p>
+  </section>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Enable animations only when JS is ready
+    document.body.classList.add('js-ready');
+
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hero bg load
+    const heroBg = document.getElementById('heroBg');
+    const img = new Image();
+    img.onload = () => heroBg.classList.add('loaded');
+    img.src = './portrait-2.jpg';
+
+    // Fade up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
