@@ -45,12 +45,18 @@
       align-items: center;
       padding: 1.5rem 2.5rem;
       background: transparent;
-      transition: background 0.4s, backdrop-filter 0.4s;
+      transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s, opacity 0.4s;
+      opacity: 0;
+      pointer-ebents: none;
     }
     nav.scrolled {
-      background: rgba(244, 239, 230, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(160,98,58,0.12);
+      background: rgba(244, 239, 230, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(160,98,58,0.1);
+      padding: 0.9rem 205rem;
+      opacity: 1;
+      pointer-events: auto;
     }
     .nav-logo {
       font-family: var(--serif);
@@ -116,14 +122,12 @@
       max-width: 900px;
     }
     .hero-enso {
-      width: 60px;
-      height: auto;
-      margin-bottom: 1.5rem;
-      display: block;
-      margun-left: 0;
-      opacity: 0.95;
-      filter: invert(1) brightness(1.1);
-      animation: fadeEnso 1.8s ease forwards;
+      width: 72px;
+      height: 72px;
+      margin-bottom: 2rem;
+      opacity: 0.88;
+      filter: invert(1) brightness(1.2);
+      animation: fadeEnso 1.5s ease forwards;
     }
     @keyframes fadeEnso {
       from { opacity: 0; transform: scale(0.9); }
