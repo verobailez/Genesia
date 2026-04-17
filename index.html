@@ -653,6 +653,37 @@
 
       .contacto-links { flex-direction: column; align-items: center; }
     }
+/* ── EL BOTÓN REDONDITO ── */
+    #backToTop {
+      position: fixed;
+      bottom: 25px; /* Separación del borde inferior */
+      right: 25px;  /* Separación del borde derecho */
+      width: 45px;
+      height: 45px;
+      background: #A0623A; /* Tu color terracotta */
+      color: white;
+      border-radius: 50%; /* Redondito */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra suave */
+      
+      /* Empieza invisible */
+      opacity: 0;
+      visibility: hidden;
+      
+      /* Animación suave para aparecer */
+      transition: all 0.3s ease;
+      z-index: 2000; /* Para que esté por encima de todo */
+    }
+
+    /* Clase que se activa con JS para mostrarlo */
+    #backToTop.visible {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 </head>
 <body>
@@ -842,7 +873,18 @@
     <p class="footer-note">Genesia · Buenos Aires · 2026</p>
   </section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      // Si bajamos más de 400px, mostramos el botón
+      if (window.scrollY > 400) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
     // Enable animations only when JS is ready
     document.body.classList.add('js-ready');
 
@@ -870,6 +912,8 @@ e.target.classList.add('visible');
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
   </script>
- 
+ <button id="backToTop" title="Volver al inicio" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
 </body>
 </html>
